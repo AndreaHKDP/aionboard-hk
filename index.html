@@ -290,30 +290,181 @@
 
     .star { color: var(--gold); font-size: 14px; }
 
-    /* ── HERO PHOTO STACK ── */
-    .hero-photos {
+    /* ── HERO GRAPHIC ── */
+    .hero-graphic {
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-38%);
-      width: 300px;
-      height: 430px;
+      transform: translateY(-45%);
+      width: 340px;
       pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .hero-photo-frame {
-      position: absolute;
-      border-radius: 10px;
+    .hg-rule {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 10px 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      width: fit-content;
+    }
+
+    .hg-rule-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(232,120,79,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hg-rule-icon svg { width: 12px; height: 12px; }
+
+    .hg-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px);
     }
-    .hero-photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
 
-    .hero-photo-frame:nth-child(1) { width:210px; height:158px; top:0; right:60px; transform:rotate(-2.5deg); z-index:3; }
-    .hero-photo-frame:nth-child(2) { width:185px; height:138px; top:140px; right:0; transform:rotate(1.8deg); z-index:2; }
-    .hero-photo-frame:nth-child(3) { width:200px; height:148px; top:260px; right:80px; transform:rotate(-1.2deg); z-index:4; }
+    .hg-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
 
-    @media (max-width: 1100px) { .hero-photos { display: none; } }
+    .hg-card-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.03em;
+    }
+
+    .hg-card-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--sage-lt);
+      background: rgba(45,106,79,0.2);
+      padding: 3px 9px;
+      border-radius: 10px;
+    }
+
+    .hg-col-labels {
+      display: grid;
+      grid-template-columns: 1fr 100px 52px;
+      padding: 7px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hg-col-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .hg-row {
+      display: grid;
+      grid-template-columns: 1fr 100px 52px;
+      align-items: center;
+      padding: 10px 18px;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+
+    .hg-row:last-child { border-bottom: none; }
+
+    .hg-task {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.35;
+    }
+
+    .hg-status {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      width: fit-content;
+      white-space: nowrap;
+    }
+
+    .hg-status.done {
+      background: rgba(45,106,79,0.22);
+      color: #6DBF91;
+    }
+
+    .hg-status.running {
+      background: rgba(232,120,79,0.2);
+      color: var(--terra-lt);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hg-spinner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(232,120,79,0.3);
+      border-top-color: var(--terra-lt);
+      animation: hg-spin 0.7s linear infinite;
+    }
+
+    .hg-time {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      text-align: right;
+    }
+
+    .hg-time.fast { color: var(--sage-lt); }
+
+    .hg-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: rgba(199,91,43,0.1);
+      border-top: 1px solid rgba(199,91,43,0.2);
+    }
+
+    .hg-footer-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .hg-footer-stat {
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--terra-lt);
+      letter-spacing: -0.02em;
+    }
+
+    @keyframes hg-spin { to { transform: rotate(360deg); } }
+    @keyframes hg-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @media (max-width: 1100px) { .hero-graphic { display: none; } }
 
     /* ── PROBLEM SECTION ── */
     #problem {
@@ -1264,16 +1415,58 @@
       </div>
     </div>
 
-    <div class="hero-photos">
-      <div class="hero-photo-frame">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Team at laptop">
+    <div class="hero-graphic">
+
+      <!-- Automation rule pill -->
+      <div class="hg-rule">
+        <div class="hg-rule-icon">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 1L2 7h4.5L5.5 11 10 5H5.5L6.5 1Z" fill="#E8784F"/>
+          </svg>
+        </div>
+        When new booking arrives → send WhatsApp reminder
       </div>
-      <div class="hero-photo-frame">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=600&q=80" alt="Laptop desk work">
+
+      <!-- Workflow table card -->
+      <div class="hg-card">
+        <div class="hg-card-header">
+          <span class="hg-card-title">Daily repetitive tasks</span>
+          <span class="hg-card-badge">4 automated</span>
+        </div>
+
+        <div class="hg-col-labels">
+          <span class="hg-col-label">Task</span>
+          <span class="hg-col-label">Status</span>
+          <span class="hg-col-label" style="text-align:right">Time</span>
+        </div>
+
+        <div class="hg-row">
+          <span class="hg-task">Draft client emails</span>
+          <span class="hg-status done">Automated</span>
+          <span class="hg-time fast">30s</span>
+        </div>
+        <div class="hg-row">
+          <span class="hg-task">Appointment reminders</span>
+          <span class="hg-status done">Automated</span>
+          <span class="hg-time fast">0 min</span>
+        </div>
+        <div class="hg-row">
+          <span class="hg-task">Copy data between systems</span>
+          <span class="hg-status done">Automated</span>
+          <span class="hg-time fast">0 min</span>
+        </div>
+        <div class="hg-row">
+          <span class="hg-task">Monthly Xero report</span>
+          <span class="hg-status running"><span class="hg-spinner"></span>Running</span>
+          <span class="hg-time">—</span>
+        </div>
+
+        <div class="hg-footer">
+          <span class="hg-footer-label">Time saved this week</span>
+          <span class="hg-footer-stat">8.3 hrs</span>
+        </div>
       </div>
-      <div class="hero-photo-frame">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Business meeting">
-      </div>
+
     </div>
   </div>
 </section>
