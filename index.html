@@ -892,8 +892,9 @@
     .cs-featured.reversed .cs-photo { order: 2; }
     .cs-featured.reversed .cs-content { order: 1; }
 
-    .cs-photo { height: 460px; overflow: hidden; }
-    .cs-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.7s ease; display:block; }
+    .cs-photo { overflow: hidden; min-height: 400px; }
+    .cs-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.7s ease; display:block; position: absolute; inset: 0; }
+    .cs-featured .cs-photo { position: relative; }
     .cs-featured:hover .cs-photo img { transform: scale(1.04); }
 
     .cs-content {
