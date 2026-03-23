@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Training for Hong Kong SMEs | Save 5–10 Hours Per Week</title>
+  <meta name="description" content="We train your team on ChatGPT, Zapier, and automation. 120+ HK businesses trained. Free 30-min audit. Results in 3 weeks.">
+  <meta property="og:title" content="AI Training for Hong Kong SMEs">
+  <meta property="og:description" content="We train your team on ChatGPT and Zapier. Most clients save 8+ hours per week. Free audit, no commitment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aionboard.hk">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://aionboard.hk">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #0C1A28;
+      --ink-mid:  #1B2E42;
+      --cream:    #FAFAF7;
+      --sand:     #F0ECE3;
+      --border:   #E0D9CE;
+      --terra:    #C75B2B;
+      --terra-lt: #E8784F;
+      --sage:     #2D6A4F;
+      --sage-lt:  #52936E;
+      --gold:     #E8A020;
+      --text:     #1A1A1A;
+      --muted:    #5A5A5A;
+      --light:    #888888;
+      --white:    #FFFFFF;
+      --radius:   10px;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { display: block; max-width: 100%; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(12, 26, 40, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(12, 26, 40, 0.99);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.25);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-logo span {
+      color: var(--terra-lt);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: none;
+      line-height: 1;
+    }
+
+    .btn-terra {
+      background: var(--terra);
+      color: #fff;
+    }
+
+    .btn-terra:hover {
+      background: var(--terra-lt);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(199,91,43,0.35);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    .btn-lg {
+      padding: 14px 28px;
+      font-size: 15px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--ink);
+      padding: 140px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 60% 40%, rgba(199,91,43,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(45,106,79,0.10) 0%, transparent 55%);
+    }
+
+    /* grain texture */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--terra-lt);
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--terra-lt);
+    }
+
+    #hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      color: var(--white);
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    #hero h1 em {
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--terra-lt);
+      font-weight: 600;
+    }
+
+    .hero-intro {
+      font-size: 18px;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-stat {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .hero-stat + .hero-stat {
+      padding-left: 40px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-stat-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .hero-stat-num span {
+      color: var(--terra-lt);
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+
+    .star-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .star { color: var(--gold); font-size: 14px; }
+
+    /* ── PROBLEM SECTION ── */
+    #problem {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--terra);
+      margin-bottom: 12px;
+    }
+
+    #problem h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin-bottom: 56px;
+      max-width: 520px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .problem-col {
+      padding: 48px;
+    }
+
+    .problem-col-header {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .problem-col.before { background: var(--cream); border-right: 1px solid var(--border); }
+    .problem-col.before .problem-col-header { color: #A33; }
+    .problem-col.after { background: var(--sand); }
+    .problem-col.after .problem-col-header { color: var(--sage); }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .problem-list li {
+      display: flex;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .problem-list .icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    .before .icon { background: #FDECEA; color: #C0392B; }
+    .after .icon { background: #E8F5EE; color: var(--sage); }
+
+    .problem-callout {
+      margin-top: 48px;
+      padding: 28px 36px;
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      color: rgba(255,255,255,0.85);
+      font-size: 17px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .problem-callout::before {
+      content: '\201C';
+      font-size: 80px;
+      font-family: Georgia, serif;
+      color: var(--terra);
+      opacity: 0.4;
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      line-height: 1;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      padding: 100px 0;
+      background: var(--sand);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .service-card.featured {
+      border-color: var(--terra);
+      box-shadow: 0 0 0 1px var(--terra);
+    }
+
+    .service-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .tag-start { background: #EEF3FF; color: #3355AA; }
+    .tag-popular { background: #FFF0EA; color: var(--terra); }
+    .tag-value { background: #E8F5EE; color: var(--sage); }
+    .tag-team { background: #FFF8E8; color: #AA7700; }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .service-price {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .service-card > p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+      flex: 1;
+    }
+
+    .service-features li {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .service-features li::before {
+      content: '→';
+      color: var(--terra);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--terra);
+      transition: gap 0.2s;
+    }
+
+    .service-cta:hover { gap: 10px; }
+
+    /* ── PROCESS ── */
+    #process {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--terra) 0%, var(--terra) 50%, var(--border) 100%);
+    }
+
+    .process-step {
+      padding: 0 32px;
+    }
+
+    .process-step:first-child { padding-left: 0; }
+    .process-step:last-child { padding-right: 0; }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-step:nth-child(1) .step-num { background: var(--terra); }
+    .process-step:nth-child(2) .step-num { background: var(--ink-mid); }
+    .process-step:nth-child(3) .step-num { background: var(--sage); }
+
+    .step-week {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+
+    .process-step h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .process-step p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .process-after {
+      margin-top: 56px;
+      padding: 28px 36px;
+      background: var(--sand);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 15px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .process-after::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--terra);
+      flex-shrink: 0;
+    }
+
+    /* ── RESULTS ── */
+    #results {
+      padding: 100px 0;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    #results .section-label { color: var(--terra-lt); }
+
+    #results h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .results-subhead {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      margin-bottom: 64px;
+    }
+
+    /* Chart */
+    .chart-container {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      margin-bottom: 64px;
+    }
+
+    .chart-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+
+    .chart-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 52px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .chart-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .chart-bar-track {
+      height: 28px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      position: relative;
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      align-items: center;
+    }
+
+    .chart-bar-fill::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .chart-value {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--white);
+    }
+
+    /* Color each bar */
+    .bar-fb    { background: linear-gradient(90deg, #C75B2B, #E8784F); }
+    .bar-retail { background: linear-gradient(90deg, #2D6A4F, #52936E); }
+    .bar-health { background: linear-gradient(90deg, #8B6A2E, #B89040); }
+    .bar-acc   { background: linear-gradient(90deg, #C75B2B, #FF9A6C); }
+    .bar-re    { background: linear-gradient(90deg, #2D6A4F, #52936E); }
+    .bar-log   { background: linear-gradient(90deg, #4A5A8A, #7080B8); }
+
+    .chart-axis {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0 0 146px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 16px;
+    }
+
+    .chart-axis span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* Industry cards */
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .industry-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: background 0.2s;
+    }
+
+    .industry-card:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .industry-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+    }
+
+    .industry-card h3 {
+      font-size: 16px;
+      color: var(--white);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .industry-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .industry-result {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .industry-result-num {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--terra-lt);
+      letter-spacing: -0.02em;
+    }
+
+    .industry-result-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .testimonial-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .testimonial-author-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonial-author-role {
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 2px;
+    }
+
+    .testimonial-card:nth-child(2) { margin-top: 24px; }
+    .testimonial-card:nth-child(5) { margin-top: 24px; }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 100px 0;
+      background: var(--sand);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      margin-top: 56px;
+    }
+
+    .faq-sidebar h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .faq-sidebar p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .faq-cta-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--terra);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      user-select: none;
+    }
+
+    .faq-question:hover { color: var(--terra); }
+
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      transition: transform 0.2s, background 0.2s;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+      background: var(--terra);
+      color: #fff;
+    }
+
+    .faq-answer {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding-bottom 0.35s ease;
+      padding-bottom: 0;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      margin-bottom: 16px;
+    }
+
+    .contact-left p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .guarantee-block {
+      padding: 24px;
+      border-left: 3px solid var(--sage);
+      background: var(--sand);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .guarantee-block strong { color: var(--sage); }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--terra);
+      box-shadow: 0 0 0 3px rgba(199,91,43,0.12);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      margin-top: 8px;
+    }
+
+    .form-meta {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.55);
+      padding: 64px 0 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 20px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.4);
+      max-width: 220px;
+      margin-bottom: 20px;
+    }
+
+    .footer-badge {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-badge-item {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer-badge-item .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--terra);
+    }
+
+    footer h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-contact-item {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .footer-lang {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── UTILITIES ── */
+    .text-muted { color: var(--muted); }
+    .mt-4 { margin-top: 16px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .container { padding: 0 20px; }
+
+      .nav-links { display: none; }
+
+      #hero { padding: 100px 0 72px; }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .hero-stat + .hero-stat {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 28px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-col.before { border-right: none; border-bottom: 1px solid var(--border); }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .process-steps::before { display: none; }
+
+      .industry-grid { grid-template-columns: 1fr 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card:nth-child(2),
+      .testimonial-card:nth-child(5) { margin-top: 0; }
+
+      .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+
+      .chart-row { grid-template-columns: 90px 1fr 44px; }
+      .chart-label { font-size: 12px; }
+    }
+
+    @media (max-width: 600px) {
+      .industry-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    /* Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AIOnboard <span>HK</span></a>
+      <ul class="nav-links">
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-terra">Book free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">AI Training · Hong Kong</div>
+      <h1>AI training for <em>Hong Kong</em> SMEs.</h1>
+      <p class="hero-intro">We teach your team to use ChatGPT and Zapier for the repetitive work that eats your day. No jargon, no overseas consultants. Most clients recover HK$8,000–15,000 in staff time every month.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-terra btn-lg">Book your free 30-min audit</a>
+        <a href="https://wa.me/852XXXXXXXX" class="btn btn-ghost btn-lg">WhatsApp us</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="120">0</span>+</div>
+          <div class="hero-stat-label">businesses trained</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count" data-target="83" data-decimal="1">0</span> <span style="font-size:24px;opacity:.6">hrs/wk</span></div>
+          <div class="hero-stat-label">saved on average</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" style="display:flex;align-items:center;gap:10px;">
+            <span>4.9</span>
+            <span style="color:var(--gold);font-size:22px;">★</span>
+          </div>
+          <div class="star-row">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.4);margin-left:4px;">from 80+ clients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="section-label">The problem</div>
+    <h2>What's eating your<br>team's time</h2>
+
+    <div class="problem-grid fade-in">
+      <div class="problem-col before">
+        <div class="problem-col-header">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#C0392B"/><path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="#C0392B" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Right now
+        </div>
+        <ul class="problem-list">
+          <li>
+            <span class="icon">✕</span>
+            <span>Drafting the same email from scratch, every time</span>
+          </li>
+          <li>
+            <span class="icon">✕</span>
+            <span>Copying data between systems by hand (2–3 hours daily)</span>
+          </li>
+          <li>
+            <span class="icon">✕</span>
+            <span>Writing product descriptions one by one</span>
+          </li>
+          <li>
+            <span class="icon">✕</span>
+            <span>Following up on invoices and appointments manually</span>
+          </li>
+          <li>
+            <span class="icon">✕</span>
+            <span>45 minutes on a property listing that should take 5</span>
+          </li>
+        </ul>
+      </div>
+      <div class="problem-col after">
+        <div class="problem-col-header">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#2D6A4F"/><path d="M3.5 7L6 9.5L10.5 4.5" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          After setup
+        </div>
+        <ul class="problem-list">
+          <li>
+            <span class="icon" style="background:#E8F5EE;color:#2D6A4F;">✓</span>
+            <span>ChatGPT drafts it in 30 seconds. You edit for 2 minutes.</span>
+          </li>
+          <li>
+            <span class="icon" style="background:#E8F5EE;color:#2D6A4F;">✓</span>
+            <span>Zapier moves the data automatically. Nobody touches it.</span>
+          </li>
+          <li>
+            <span class="icon" style="background:#E8F5EE;color:#2D6A4F;">✓</span>
+            <span>500 product descriptions in an afternoon, not a week.</span>
+          </li>
+          <li>
+            <span class="icon" style="background:#E8F5EE;color:#2D6A4F;">✓</span>
+            <span>Reminders go out at the right time. You check exceptions.</span>
+          </li>
+          <li>
+            <span class="icon" style="background:#E8F5EE;color:#2D6A4F;">✓</span>
+            <span>A template pulls the details. Your agent writes the listing in 5 minutes.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="problem-callout fade-in">
+      The difference: we don't hand you a tool and walk away. We stay until it works.
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Services</div>
+      <h2>Four ways we help</h2>
+      <p>Most clients start with an Audit, then move to Setup.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card fade-in">
+        <span class="service-tag tag-start">Start here</span>
+        <h3>AI Audit</h3>
+        <p class="service-price">From HK$3,800</p>
+        <p>We spend 4 hours learning how your team works — what takes the longest, what gets repeated, where things fall through the cracks. You get a written report naming your 3 biggest time drains and 3 quick fixes you can try this week.</p>
+        <ul class="service-features">
+          <li>Workflow walkthrough with your team</li>
+          <li>Tool shortlist built for your workflows</li>
+          <li>Time-saving estimate in hours per week</li>
+          <li>Priority action plan</li>
+        </ul>
+        <a href="#contact" class="service-cta">Book an Audit →</a>
+      </div>
+
+      <!-- Card 2 — Featured -->
+      <div class="service-card featured fade-in">
+        <span class="service-tag tag-popular">Most popular</span>
+        <h3>AI Setup</h3>
+        <p class="service-price">From HK$8,500</p>
+        <p>We build the automations, write the prompts for your specific workflows, connect everything to your existing tools, and hand it over in a working session. You get a working setup — not a proof of concept.</p>
+        <ul class="service-features">
+          <li>Tool install and configuration</li>
+          <li>Prompts written for your actual use cases</li>
+          <li>System integrations (Xero, Shopify, Google Workspace, HubSpot)</li>
+          <li>Full team handover session</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get Set Up →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card fade-in">
+        <span class="service-tag tag-value">Best value</span>
+        <h3>Monthly Retainer</h3>
+        <p class="service-price">From HK$2,200/month</p>
+        <p>AI tools update constantly. We keep your setup current, help your team get more out of what's already there, and flag new tools worth switching to. One part-time AI department, without the full-time cost.</p>
+        <ul class="service-features">
+          <li>Monthly strategy call</li>
+          <li>Bug fixes within 24 hours</li>
+          <li>1–2 new automations per month</li>
+          <li>Unlimited support</li>
+        </ul>
+        <a href="#contact" class="service-cta">Join the Retainer →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card fade-in">
+        <span class="service-tag tag-team">Team-wide</span>
+        <h3>AI Workshops</h3>
+        <p class="service-price">From HK$6,500</p>
+        <p>Half-day sessions where your team learns by doing, using examples from your industry — not generic demos. By the end, even the sceptics usually walk out with something they want to try on Monday.</p>
+        <ul class="service-features">
+          <li>Built around your industry, not a template</li>
+          <li>Hands-on with real tools on your machines</li>
+          <li>Live Q&amp;A</li>
+          <li>Take-home reference kit</li>
+        </ul>
+        <a href="#contact" class="service-cta">Book a Workshop →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>From first call to working<br>setup in 3 weeks</h2>
+
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-num">1</div>
+        <div class="step-week">Week 1</div>
+        <h3>Audit</h3>
+        <p>We interview your team, watch the most repetitive work happen, and review your current tools. You get a written report: what wastes the most time, what's fixable, and what we'd build for you.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">2</div>
+        <div class="step-week">Week 2</div>
+        <h3>Build</h3>
+        <p>We build your automations with your team present. They learn why it works, not just how to click it. We test with real data and fix edge cases before handing over.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-num">3</div>
+        <div class="step-week">Week 3</div>
+        <h3>Train &amp; hand over</h3>
+        <p>Half-day session with your full team. Everyone practices on their own machine. You own it completely — no ongoing dependency on us unless you want the retainer.</p>
+      </div>
+    </div>
+
+    <div class="process-after fade-in">
+      30 days of email support included with every setup. Monthly retainer available if you want us on call.
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="container">
+    <div class="section-label">Results by industry</div>
+    <h2>What we've built for<br>Hong Kong businesses</h2>
+    <p class="results-subhead">Six industries. Specific numbers. Real clients.</p>
+
+    <!-- Chart -->
+    <div class="chart-container fade-in" id="chart-container">
+      <div class="chart-title">Hours saved per week — by industry</div>
+      <div class="chart-bars" id="chartBars">
+        <div class="chart-row">
+          <div class="chart-label">Accounting</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-acc" style="width:0%" data-width="100%"></div>
+          </div>
+          <div class="chart-value">24 hrs</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Retail</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-retail" style="width:0%" data-width="25%"></div>
+          </div>
+          <div class="chart-value">6 hrs</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Real Estate</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-re" style="width:0%" data-width="25%"></div>
+          </div>
+          <div class="chart-value">6 hrs</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">F&amp;B</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-fb" style="width:0%" data-width="21%"></div>
+          </div>
+          <div class="chart-value">5 hrs</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Logistics</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-log" style="width:0%" data-width="21%"></div>
+          </div>
+          <div class="chart-value">5 hrs</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-label">Healthcare</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill bar-health" style="width:0%" data-width="12.5%"></div>
+          </div>
+          <div class="chart-value">3 hrs</div>
+        </div>
+      </div>
+      <div class="chart-axis">
+        <span>0 hrs</span>
+        <span>6</span>
+        <span>12</span>
+        <span>18</span>
+        <span>24 hrs/wk</span>
+      </div>
+    </div>
+
+    <!-- Industry cards -->
+    <div class="industry-grid">
+      <div class="industry-card fade-in">
+        <div class="industry-tag">F&amp;B</div>
+        <h3>Restaurants &amp; Cafés</h3>
+        <p>A Central restaurant owner spent 3–4 hours daily on emails, reservation changes, and social posts. Zapier now sends WhatsApp reminders. ChatGPT templates handle allergy and dietary emails.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">4–6</span>
+          <span class="industry-result-label">hrs saved per week<br>Email volume: 50 → 15/day</span>
+        </div>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-tag">Retail &amp; E-Commerce</div>
+        <h3>Product Copy at Scale</h3>
+        <p>A Kwun Tong e-commerce team was writing product descriptions one at a time — 500 SKUs, done by hand. ChatGPT now pulls from supplier data and outputs on-brand descriptions in seconds.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">6</span>
+          <span class="industry-result-label">hrs saved per week<br>Products listed 3× faster</span>
+        </div>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-tag">Healthcare</div>
+        <h3>Clinic Appointment Flow</h3>
+        <p>A Mong Kok clinic was chasing no-shows by phone — 5–10 minutes per call. WhatsApp bot now sends reminders 24 hrs and 2 hrs before, synced directly to the booking system.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">−20%</span>
+          <span class="industry-result-label">no-show rate<br>3 hrs recovered per week</span>
+        </div>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-tag">Accounting</div>
+        <h3>CPA Firm Operations</h3>
+        <p>A 3-person CPA firm was drafting client emails and formatting monthly reports from Xero data by hand. ChatGPT templates + Zapier now handle routine correspondence and report generation.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">18–30</span>
+          <span class="industry-result-label">hrs recovered per week<br>Equivalent of one full-time person</span>
+        </div>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-tag">Real Estate</div>
+        <h3>Bilingual Listings</h3>
+        <p>A property agency was spending 45 minutes per bilingual listing. Agents were tied up writing instead of showing. ChatGPT template takes photos and basic details, outputs a bilingual listing in 5 minutes.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">5–7</span>
+          <span class="industry-result-label">hrs saved per agent/week<br>Bilingual, no extra time</span>
+        </div>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-tag">Logistics</div>
+        <h3>Freight &amp; Supply Chain</h3>
+        <p>A freight operations team was sending shipment updates manually. Zapier now handles status notifications. A tool reads customs documents and flags only what needs human attention.</p>
+        <div class="industry-result">
+          <span class="industry-result-num">4–6</span>
+          <span class="industry-result-label">hrs saved per week<br>Fewer missed updates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label">Client results</div>
+    <h2>What clients say</h2>
+    <p style="color:var(--muted);margin-top:10px;">80+ Hong Kong businesses. These are their words.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"We'd tried ChatGPT ourselves and got nowhere. Within two weeks of working with AIOnboard, our staff were using it every day — menu copy, Instagram captions, Google review replies. We're saving about 10 hours a week and honestly the content is better than what we wrote manually."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">KL</div>
+          <div>
+            <div class="testimonial-author-name">Karen Lam</div>
+            <div class="testimonial-author-role">Owner · Café Bloom (F&B)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"My biggest concern was patient data privacy. They walked me through exactly which tools they recommended and why each one was compliant. No hand-waving. Our admin team now saves two hours every day on appointment reminders and documentation."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RC</div>
+          <div>
+            <div class="testimonial-author-name">Dr. Raymond Chan</div>
+            <div class="testimonial-author-role">Clinic Director · Premier Health Centre</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"As a CPA firm we move slowly with technology — for good reason. But the workshop was practical, not fluffy. No slides full of buzzwords. Just: here's a tool, here's how you use it for client reports. Three months in and we've cut client email time in half."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">VH</div>
+          <div>
+            <div class="testimonial-author-name">Vivian Ho</div>
+            <div class="testimonial-author-role">Managing Partner · VH &amp; Associates CPA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"Property listings in English and Chinese used to take our agents 45 minutes each. Now it's five. That's not an exaggeration. Our agents spend that time on viewings and follow-ups instead, and we've already seen faster closes."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JN</div>
+          <div>
+            <div class="testimonial-author-name">Jason Ng</div>
+            <div class="testimonial-author-role">Branch Manager · Prestige Properties HK</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"We move hundreds of shipments daily and customer updates were drowning my team. AIOnboard set up automated status messages and a tool that reads customs documents and flags what actually needs our attention. I can't imagine going back."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MY</div>
+          <div>
+            <div class="testimonial-author-name">Michelle Yuen</div>
+            <div class="testimonial-author-role">Operations Manager · FastFreight HK</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>"Writing product descriptions for 500 SKUs was taking days. The quality was inconsistent. Now we input the basics and get clean, on-brand copy in seconds. The time we freed up goes straight into customer experience and promotions."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AT</div>
+          <div>
+            <div class="testimonial-author-name">Andy Tsang</div>
+            <div class="testimonial-author-role">E-commerce Director · Style &amp; Home HK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-sidebar">
+        <div class="section-label">FAQ</div>
+        <h2>Your questions</h2>
+        <p>If something's not here, just ask.</p>
+        <a href="#contact" class="faq-cta-link">Talk to us →</a>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do we need to be technical?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            No. We handle the accounts, integrations, and configuration. You learn how to use what we've built, which we make as simple as clicking a button and typing. Most clients have never set up a piece of software before and it's completely fine.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How long before we're up and running?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Most teams are using AI tools within 2–4 weeks of the first call. More complex setups — connecting AI to an existing CRM or booking system — can take 4–6 weeks. We'll give you a realistic timeline after the audit, not a sales estimate.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Which tools do you work with?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            ChatGPT (OpenAI), Claude (Anthropic), Zapier, Make.com, Notion AI, Google Workspace AI, and others. We pick what fits your budget and workflows — not what's trending. Sometimes one tool is the right answer. Sometimes it's three.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Is our data safe?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            We only configure tools that meet Hong Kong's data privacy requirements. Your business data doesn't train any AI models. For healthcare and accounting clients, we have specific protocols. We walk you through exactly what goes where before anything is set up.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Our team resists new software. Is that a problem?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            It's common. We've helped teams where half the staff were sceptical when we walked in. Our workshops show rather than tell — we find the one task that makes your most resistant person's job easier and demonstrate it live. Most people come around once they see it working for them.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Can we do this in Cantonese?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            係！我哋提供廣東話服務。All calls, training sessions, and support run in Cantonese, Mandarin, or English — whichever your team prefers.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            We're in a regulated industry. Can you handle that?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. We've worked with healthcare, accounting, and legal clients. We won't recommend any setup that creates compliance risk — that's not negotiable, regardless of how useful a tool might otherwise be.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What does the monthly retainer include?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            One strategy call per month, unlimited support with a 24-hour response time, tool updates as AI keeps changing, and suggestions when we spot new ways to help your business. You also get access to our client resource library. One part-time AI department without the full-time cost.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-label">Free audit</div>
+        <h2>Book your free<br>30-minute audit</h2>
+        <p>Tell us what your team does and what takes up more time than it should. We'll show you the 3 places AI saves the most time. No commitment.</p>
+
+        <div class="guarantee-block">
+          <strong>Our guarantee:</strong> If you complete the Audit + Setup and don't recover the cost within 90 days, we work with you for free until you do.
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label for="message">What takes up more time than it should?</label>
+            <textarea id="message" name="message" placeholder="Tell us what your team spends the most time on..."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-terra btn-lg" style="width:100%;justify-content:center;">Book your free audit</button>
+          </div>
+          <p class="form-meta">We reply within 24 hours. Or WhatsApp us: +852 XXXX XXXX (reply within 1 hour).</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:12px;">AIOnboard <span>HK</span></span>
+        <p>AI training for Hong Kong businesses. We stay until it works.</p>
+        <div class="footer-badge">
+          <span class="footer-badge-item"><span class="dot"></span>4.9★</span>
+          <span class="footer-badge-item"><span class="dot"></span>120+ clients</span>
+          <span class="footer-badge-item"><span class="dot"></span>Est. 2023</span>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-contact-item">hello@aionboard.hk</div>
+        <div class="footer-contact-item">+852 XXXX XXXX</div>
+        <div class="footer-contact-item" style="color:rgba(255,255,255,0.4);">WhatsApp available</div>
+        <div class="footer-lang">Cantonese · Mandarin · English<br>Hong Kong</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 AIOnboard HK. All rights reserved.</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // FAQ accordion
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Intersection Observer for fade-in and chart animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        // Animate chart bars on chart-container visibility
+        if (entry.target.id === 'chart-container') {
+          animateChart();
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in, #chart-container').forEach(el => observer.observe(el));
+
+  // Chart bar animation
+  function animateChart() {
+    const fills = document.querySelectorAll('.chart-bar-fill');
+    fills.forEach((fill, i) => {
+      setTimeout(() => {
+        fill.style.width = fill.dataset.width;
+      }, i * 100);
+    });
+  }
+
+  // Counter animation for hero stats
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const isDecimal = el.dataset.decimal;
+    const duration = 1800;
+    const step = duration / target;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += Math.ceil(target / (duration / 20));
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      if (isDecimal) {
+        el.textContent = (current / 10).toFixed(1);
+      } else {
+        el.textContent = current;
+      }
+    }, 20);
+  }
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.count').forEach(el => animateCounter(el));
+        heroObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  heroObserver.observe(document.getElementById('hero'));
+
+  // Form submission
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Sent — we\'ll be in touch within 24 hours.';
+    btn.disabled = true;
+    btn.style.background = '#2D6A4F';
+  }
+
+  // Staggered fade-in
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 80}ms`;
+  });
+</script>
+
+</body>
+</html>
