@@ -189,6 +189,8 @@
       background-size: 128px;
     }
 
+    #hero > .container { position: relative; }
+
     .hero-inner {
       position: relative;
       z-index: 1;
@@ -287,6 +289,31 @@
     }
 
     .star { color: var(--gold); font-size: 14px; }
+
+    /* ── HERO PHOTO STACK ── */
+    .hero-photos {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-38%);
+      width: 300px;
+      height: 430px;
+      pointer-events: none;
+    }
+
+    .hero-photo-frame {
+      position: absolute;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .hero-photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    .hero-photo-frame:nth-child(1) { width:210px; height:158px; top:0; right:60px; transform:rotate(-2.5deg); z-index:3; }
+    .hero-photo-frame:nth-child(2) { width:185px; height:138px; top:140px; right:0; transform:rotate(1.8deg); z-index:2; }
+    .hero-photo-frame:nth-child(3) { width:200px; height:148px; top:260px; right:80px; transform:rotate(-1.2deg); z-index:4; }
+
+    @media (max-width: 1100px) { .hero-photos { display: none; } }
 
     /* ── PROBLEM SECTION ── */
     #problem {
@@ -601,181 +628,63 @@
       flex-shrink: 0;
     }
 
-    /* ── RESULTS ── */
-    #results {
+    /* ── CASE STUDIES ── */
+    #case-studies {
       padding: 100px 0;
-      background: var(--ink);
-      color: var(--white);
+      background: var(--cream);
     }
+    #case-studies .results-subhead { color: var(--muted); }
+    #case-studies h2 { font-size: clamp(30px, 4vw, 46px); margin-bottom: 12px; color: var(--text); }
 
-    #results .section-label { color: var(--terra-lt); }
-
-    #results h2 {
-      font-size: clamp(30px, 4vw, 46px);
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .results-subhead {
-      color: rgba(255,255,255,0.5);
-      font-size: 15px;
-      margin-bottom: 64px;
-    }
-
-    /* Chart */
-    .chart-container {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .cs-featured {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 40px 48px;
-      margin-bottom: 64px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--white);
     }
+    .cs-featured.reversed { grid-template-columns: 45fr 55fr; }
+    .cs-featured.reversed .cs-photo { order: 2; }
+    .cs-featured.reversed .cs-content { order: 1; }
 
-    .chart-title {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 32px;
-    }
+    .cs-photo { height: 460px; overflow: hidden; }
+    .cs-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.7s ease; display:block; }
+    .cs-featured:hover .cs-photo img { transform: scale(1.04); }
 
-    .chart-bars {
+    .cs-content {
+      padding: 52px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      justify-content: center;
     }
-
-    .chart-row {
-      display: grid;
-      grid-template-columns: 130px 1fr 52px;
-      align-items: center;
-      gap: 16px;
+    .cs-industry {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--terra); margin-bottom: 12px;
     }
+    .cs-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 28px; line-height: 1.35; }
+    .cs-stat-block { padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .cs-stat-num { font-family:'Sora',sans-serif; font-size: 54px; font-weight: 800; line-height: 1; color: var(--ink); letter-spacing: -0.03em; }
+    .cs-stat-label { font-size: 13px; color: var(--muted); margin-top: 5px; }
+    .cs-story { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .cs-built-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); margin-bottom: 10px; }
+    .cs-built-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .cs-built-list li { font-size: 13px; color: var(--muted); display: flex; gap: 8px; }
+    .cs-built-list li::before { content: '→'; color: var(--terra); font-weight: 600; flex-shrink: 0; }
 
-    .chart-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .chart-bar-track {
-      height: 28px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .chart-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      position: relative;
-      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-      display: flex;
-      align-items: center;
-    }
-
-    .chart-bar-fill::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 0 4px 4px 0;
-    }
-
-    .chart-value {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--white);
-    }
-
-    /* Color each bar */
-    .bar-fb    { background: linear-gradient(90deg, #C75B2B, #E8784F); }
-    .bar-retail { background: linear-gradient(90deg, #2D6A4F, #52936E); }
-    .bar-health { background: linear-gradient(90deg, #8B6A2E, #B89040); }
-    .bar-acc   { background: linear-gradient(90deg, #C75B2B, #FF9A6C); }
-    .bar-re    { background: linear-gradient(90deg, #2D6A4F, #52936E); }
-    .bar-log   { background: linear-gradient(90deg, #4A5A8A, #7080B8); }
-
-    .chart-axis {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0 0 146px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: 16px;
-    }
-
-    .chart-axis span {
-      font-size: 11px;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* Industry cards */
-    .industry-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .industry-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: background 0.2s;
-    }
-
-    .industry-card:hover {
-      background: rgba(255,255,255,0.07);
-    }
-
-    .industry-tag {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 10px;
-    }
-
-    .industry-card h3 {
-      font-size: 16px;
-      color: var(--white);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .industry-card p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .industry-result {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .industry-result-num {
-      font-family: 'Sora', sans-serif;
-      font-weight: 800;
-      font-size: 28px;
-      color: var(--terra-lt);
-      letter-spacing: -0.02em;
-    }
-
-    .industry-result-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-    }
+    .cs-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .cs-card { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); transition: box-shadow 0.2s, transform 0.2s; }
+    .cs-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.09); transform: translateY(-2px); }
+    .cs-card-photo { height: 220px; overflow: hidden; }
+    .cs-card-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; display:block; }
+    .cs-card:hover .cs-card-photo img { transform: scale(1.05); }
+    .cs-card-content { padding: 28px 32px 32px; }
+    .cs-card-industry { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--terra); margin-bottom: 8px; }
+    .cs-card-stat { font-family:'Sora',sans-serif; font-size: 40px; font-weight: 800; line-height: 1; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 3px; }
+    .cs-card-stat-label { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+    .cs-card-title { font-size: 16px; font-family:'Sora',sans-serif; font-weight: 700; margin-bottom: 10px; line-height: 1.35; }
+    .cs-card-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
     /* ── TESTIMONIALS ── */
     #testimonials {
@@ -1176,7 +1085,12 @@
 
       .process-steps::before { display: none; }
 
-      .industry-grid { grid-template-columns: 1fr 1fr; }
+      .cs-featured, .cs-featured.reversed { grid-template-columns: 1fr; }
+      .cs-featured.reversed .cs-photo { order: 0; }
+      .cs-featured.reversed .cs-content { order: 0; }
+      .cs-photo { height: 260px; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-content { padding: 32px; }
 
       .testimonials-grid { grid-template-columns: 1fr; }
       .testimonial-card:nth-child(2),
@@ -1186,13 +1100,9 @@
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 
       .footer-inner { grid-template-columns: 1fr 1fr; }
-
-      .chart-row { grid-template-columns: 90px 1fr 44px; }
-      .chart-label { font-size: 12px; }
     }
 
     @media (max-width: 600px) {
-      .industry-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
     }
 
@@ -1219,7 +1129,7 @@
       <ul class="nav-links">
         <li><a href="#process">How it works</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#case-studies">Results</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <a href="#contact" class="btn btn-terra">Book free audit</a>
@@ -1258,6 +1168,18 @@
             <span style="font-size:12px;color:rgba(255,255,255,.4);margin-left:4px;">from 80+ clients</span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="hero-photos">
+      <div class="hero-photo-frame">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Team at laptop">
+      </div>
+      <div class="hero-photo-frame">
+        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=600&q=80" alt="Laptop desk work">
+      </div>
+      <div class="hero-photo-frame">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Business meeting">
       </div>
     </div>
   </div>
@@ -1440,128 +1362,112 @@
   </div>
 </section>
 
-<!-- RESULTS -->
-<section id="results">
+<!-- CASE STUDIES -->
+<section id="case-studies">
   <div class="container">
     <div class="section-label">Results by industry</div>
     <h2>What we've built for<br>Hong Kong businesses</h2>
-    <p class="results-subhead">Six industries. Specific numbers. Real clients.</p>
+    <p class="results-subhead" style="font-size:15px;margin-bottom:64px;">Six industries. Specific numbers. Real clients.</p>
 
-    <!-- Chart -->
-    <div class="chart-container fade-in" id="chart-container">
-      <div class="chart-title">Hours saved per week — by industry</div>
-      <div class="chart-bars" id="chartBars">
-        <div class="chart-row">
-          <div class="chart-label">Accounting</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-acc" style="width:0%" data-width="100%"></div>
-          </div>
-          <div class="chart-value">24 hrs</div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-label">Retail</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-retail" style="width:0%" data-width="25%"></div>
-          </div>
-          <div class="chart-value">6 hrs</div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-label">Real Estate</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-re" style="width:0%" data-width="25%"></div>
-          </div>
-          <div class="chart-value">6 hrs</div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-label">F&amp;B</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-fb" style="width:0%" data-width="21%"></div>
-          </div>
-          <div class="chart-value">5 hrs</div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-label">Logistics</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-log" style="width:0%" data-width="21%"></div>
-          </div>
-          <div class="chart-value">5 hrs</div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-label">Healthcare</div>
-          <div class="chart-bar-track">
-            <div class="chart-bar-fill bar-health" style="width:0%" data-width="12.5%"></div>
-          </div>
-          <div class="chart-value">3 hrs</div>
-        </div>
+    <!-- Featured 1: Accounting — photo left, content right -->
+    <div class="cs-featured fade-in">
+      <div class="cs-photo">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="Accounting work">
       </div>
-      <div class="chart-axis">
-        <span>0 hrs</span>
-        <span>6</span>
-        <span>12</span>
-        <span>18</span>
-        <span>24 hrs/wk</span>
+      <div class="cs-content">
+        <div class="cs-industry">Accounting</div>
+        <div class="cs-title">A 3-person CPA firm recovered 18–30 hours a week</div>
+        <div class="cs-stat-block">
+          <div class="cs-stat-num">18–30 hrs</div>
+          <div class="cs-stat-label">recovered per week — equivalent of one full-time person</div>
+        </div>
+        <p class="cs-story">"They were drafting every client email from scratch and formatting monthly reports by hand from Xero data. Two full-time people, half their week gone to repetitive writing."</p>
+        <div class="cs-built-label">What we built</div>
+        <ul class="cs-built-list">
+          <li>ChatGPT templates for routine client correspondence</li>
+          <li>Zapier flow pulling Xero data into formatted reports automatically</li>
+          <li>One-day training session with the full team</li>
+        </ul>
       </div>
     </div>
 
-    <!-- Industry cards -->
-    <div class="industry-grid">
-      <div class="industry-card fade-in">
-        <div class="industry-tag">F&amp;B</div>
-        <h3>Restaurants &amp; Cafés</h3>
-        <p>A Central restaurant owner spent 3–4 hours daily on emails, reservation changes, and social posts. Zapier now sends WhatsApp reminders. ChatGPT templates handle allergy and dietary emails.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">4–6</span>
-          <span class="industry-result-label">hrs saved per week<br>Email volume: 50 → 15/day</span>
+    <!-- Featured 2: Real Estate — photo right, content left -->
+    <div class="cs-featured reversed fade-in">
+      <div class="cs-photo">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Real estate property">
+      </div>
+      <div class="cs-content">
+        <div class="cs-industry">Real Estate</div>
+        <div class="cs-title">Bilingual property listings from 45 minutes to 5</div>
+        <div class="cs-stat-block">
+          <div class="cs-stat-num">5–7 hrs</div>
+          <div class="cs-stat-label">saved per agent per week. Bilingual, no extra time.</div>
+        </div>
+        <p class="cs-story">"Agents at a Hong Kong property agency were spending 45 minutes per listing — writing in English, then translating to Chinese, then formatting. They were tied up at desks instead of showing properties."</p>
+        <div class="cs-built-label">What we built</div>
+        <ul class="cs-built-list">
+          <li>ChatGPT template pulling from photos and basic property details</li>
+          <li>Outputs full bilingual listing in 5 minutes</li>
+          <li>Agents own the template — no ongoing dependency</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2×2 grid cards -->
+    <div class="cs-grid">
+      <!-- Card 1: F&B -->
+      <div class="cs-card fade-in">
+        <div class="cs-card-photo">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Restaurant">
+        </div>
+        <div class="cs-card-content">
+          <div class="cs-card-industry">F&amp;B</div>
+          <div class="cs-card-stat">4–6 hrs</div>
+          <div class="cs-card-stat-label">saved per week</div>
+          <div class="cs-card-title">Central restaurant cuts daily emails from 50 to 15</div>
+          <p class="cs-card-text">Zapier sends WhatsApp reminders before bookings. ChatGPT handles allergy and dietary replies. Social posts auto-generate from new menu items.</p>
         </div>
       </div>
 
-      <div class="industry-card fade-in">
-        <div class="industry-tag">Retail &amp; E-Commerce</div>
-        <h3>Product Copy at Scale</h3>
-        <p>A Kwun Tong e-commerce team was writing product descriptions one at a time — 500 SKUs, done by hand. ChatGPT now pulls from supplier data and outputs on-brand descriptions in seconds.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">6</span>
-          <span class="industry-result-label">hrs saved per week<br>Products listed 3× faster</span>
+      <!-- Card 2: Retail -->
+      <div class="cs-card fade-in">
+        <div class="cs-card-photo">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80" alt="Retail store">
+        </div>
+        <div class="cs-card-content">
+          <div class="cs-card-industry">Retail &amp; E-Commerce</div>
+          <div class="cs-card-stat">6 hrs</div>
+          <div class="cs-card-stat-label">saved per week, 3× faster to list</div>
+          <div class="cs-card-title">500 product descriptions — done in an afternoon</div>
+          <p class="cs-card-text">A Kwun Tong e-commerce team was writing product descriptions one at a time. ChatGPT now pulls from supplier data and outputs on-brand copy in seconds.</p>
         </div>
       </div>
 
-      <div class="industry-card fade-in">
-        <div class="industry-tag">Healthcare</div>
-        <h3>Clinic Appointment Flow</h3>
-        <p>A Mong Kok clinic was chasing no-shows by phone — 5–10 minutes per call. WhatsApp bot now sends reminders 24 hrs and 2 hrs before, synced directly to the booking system.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">−20%</span>
-          <span class="industry-result-label">no-show rate<br>3 hrs recovered per week</span>
+      <!-- Card 3: Healthcare -->
+      <div class="cs-card fade-in">
+        <div class="cs-card-photo">
+          <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80" alt="Healthcare clinic">
+        </div>
+        <div class="cs-card-content">
+          <div class="cs-card-industry">Healthcare</div>
+          <div class="cs-card-stat">−20%</div>
+          <div class="cs-card-stat-label">no-show rate. 3 hours recovered per week.</div>
+          <div class="cs-card-title">Mong Kok clinic cuts no-shows by 20%</div>
+          <p class="cs-card-text">Staff were chasing no-shows by phone — 5–10 minutes per call. A WhatsApp bot now sends reminders 24 hours and 2 hours before, synced to the booking system.</p>
         </div>
       </div>
 
-      <div class="industry-card fade-in">
-        <div class="industry-tag">Accounting</div>
-        <h3>CPA Firm Operations</h3>
-        <p>A 3-person CPA firm was drafting client emails and formatting monthly reports from Xero data by hand. ChatGPT templates + Zapier now handle routine correspondence and report generation.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">18–30</span>
-          <span class="industry-result-label">hrs recovered per week<br>Equivalent of one full-time person</span>
+      <!-- Card 4: Logistics -->
+      <div class="cs-card fade-in">
+        <div class="cs-card-photo">
+          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=700&q=80" alt="Logistics freight">
         </div>
-      </div>
-
-      <div class="industry-card fade-in">
-        <div class="industry-tag">Real Estate</div>
-        <h3>Bilingual Listings</h3>
-        <p>A property agency was spending 45 minutes per bilingual listing. Agents were tied up writing instead of showing. ChatGPT template takes photos and basic details, outputs a bilingual listing in 5 minutes.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">5–7</span>
-          <span class="industry-result-label">hrs saved per agent/week<br>Bilingual, no extra time</span>
-        </div>
-      </div>
-
-      <div class="industry-card fade-in">
-        <div class="industry-tag">Logistics</div>
-        <h3>Freight &amp; Supply Chain</h3>
-        <p>A freight operations team was sending shipment updates manually. Zapier now handles status notifications. A tool reads customs documents and flags only what needs human attention.</p>
-        <div class="industry-result">
-          <span class="industry-result-num">4–6</span>
-          <span class="industry-result-label">hrs saved per week<br>Fewer missed updates</span>
+        <div class="cs-card-content">
+          <div class="cs-card-industry">Logistics</div>
+          <div class="cs-card-stat">4–6 hrs</div>
+          <div class="cs-card-stat-label">saved per week. Fewer missed updates.</div>
+          <div class="cs-card-title">Freight team stops drowning in manual updates</div>
+          <p class="cs-card-text">Zapier automates status notifications. A tool reads customs documents and flags only what needs human attention. The team went from reactive to in control.</p>
         </div>
       </div>
     </div>
@@ -1820,7 +1726,7 @@
         <ul class="footer-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#process">How it works</a></li>
-          <li><a href="#results">Results</a></li>
+          <li><a href="#case-studies">Results</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1857,33 +1763,17 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Intersection Observer for fade-in and chart animation
+  // Intersection Observer for fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-
-        // Animate chart bars on chart-container visibility
-        if (entry.target.id === 'chart-container') {
-          animateChart();
-        }
-
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll('.fade-in, #chart-container').forEach(el => observer.observe(el));
-
-  // Chart bar animation
-  function animateChart() {
-    const fills = document.querySelectorAll('.chart-bar-fill');
-    fills.forEach((fill, i) => {
-      setTimeout(() => {
-        fill.style.width = fill.dataset.width;
-      }, i * 100);
-    });
-  }
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // Counter animation for hero stats
   function animateCounter(el) {
