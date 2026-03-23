@@ -420,119 +420,210 @@
       line-height: 1;
     }
 
-    /* ── SERVICES ── */
+    /* ── PRICING ── */
     #services {
       padding: 100px 0;
-      background: var(--sand);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: var(--ink);
     }
+
+    #services .section-label { color: var(--terra-lt); }
+    #services h2 { color: var(--white); }
 
     .section-header {
       margin-bottom: 56px;
     }
 
     .section-header p {
-      color: var(--muted);
+      color: rgba(255,255,255,0.45);
       margin-top: 12px;
       font-size: 16px;
     }
 
-    .services-grid {
+    .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: start;
     }
 
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+    .pricing-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: var(--radius-lg);
-      padding: 36px;
+      padding: 32px 26px;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      transition: background 0.2s;
     }
 
-    .service-card:hover {
-      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-      transform: translateY(-2px);
+    .pricing-card:hover { background: rgba(255,255,255,0.08); }
+
+    .pricing-card.featured {
+      background: var(--white);
+      border-color: var(--white);
+      margin-top: -20px;
+      margin-bottom: -20px;
+      padding-top: 52px;
+      padding-bottom: 44px;
+      box-shadow: 0 32px 72px rgba(0,0,0,0.45);
+      z-index: 1;
     }
 
-    .service-card.featured {
-      border-color: var(--terra);
-      box-shadow: 0 0 0 1px var(--terra);
-    }
-
-    .service-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 11px;
+    .pricing-badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--terra);
+      color: #fff;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-      width: fit-content;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 0 0 8px 8px;
+      white-space: nowrap;
     }
 
-    .tag-start { background: #EEF3FF; color: #3355AA; }
-    .tag-popular { background: #FFF0EA; color: var(--terra); }
-    .tag-value { background: #E8F5EE; color: var(--sage); }
-    .tag-team { background: #FFF8E8; color: #AA7700; }
-
-    .service-card h3 {
-      font-size: 22px;
+    .pricing-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
       margin-bottom: 6px;
     }
 
-    .service-price {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 18px;
+    .pricing-card.featured .pricing-name { color: var(--text); }
+
+    .pricing-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.55;
+      margin-bottom: 20px;
     }
 
-    .service-card > p {
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--muted);
-      margin-bottom: 24px;
+    .pricing-card.featured .pricing-desc { color: var(--muted); }
+
+    .pricing-price-block {
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 22px;
     }
 
-    .service-features {
+    .pricing-card.featured .pricing-price-block { border-color: var(--border); }
+
+    .pricing-from {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .pricing-card.featured .pricing-from { color: var(--light); }
+
+    .pricing-amount {
+      font-family: 'Sora', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .pricing-card.featured .pricing-amount { color: var(--ink); }
+
+    .pricing-period {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 5px;
+    }
+
+    .pricing-card.featured .pricing-period { color: var(--muted); }
+
+    .pricing-features {
       list-style: none;
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 32px;
-      flex: 1;
+      margin-bottom: 26px;
     }
 
-    .service-features li {
+    .pricing-features li {
       display: flex;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 9px;
       font-size: 13px;
-      color: var(--text);
+      color: rgba(255,255,255,0.6);
+      line-height: 1.45;
     }
 
-    .service-features li::before {
-      content: '→';
-      color: var(--terra);
-      font-weight: 600;
-      flex-shrink: 0;
-    }
+    .pricing-card.featured .pricing-features li { color: var(--text); }
 
-    .service-cta {
-      display: inline-flex;
+    .pricing-features li::before {
+      content: '✓';
+      font-size: 10px;
+      font-weight: 700;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.45);
+      display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--terra);
-      transition: gap 0.2s;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .service-cta:hover { gap: 10px; }
+    .pricing-card.featured .pricing-features li::before {
+      background: #E8F5EE;
+      color: var(--sage);
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 11px 18px;
+      border-radius: var(--radius);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.18s;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.8);
+      cursor: pointer;
+    }
+
+    .pricing-cta:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .pricing-card.featured .pricing-cta {
+      background: var(--terra);
+      border-color: var(--terra);
+      color: #fff;
+      padding: 13px 18px;
+    }
+
+    .pricing-card.featured .pricing-cta:hover {
+      background: var(--terra-lt);
+      box-shadow: 0 8px 24px rgba(199,91,43,0.35);
+    }
+
+    .pricing-note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .pricing-note a { color: rgba(255,255,255,0.5); text-decoration: underline; }
 
     /* ── PROCESS ── */
     #process {
@@ -1076,7 +1167,8 @@
 
       .problem-col.before { border-right: none; border-bottom: 1px solid var(--border); }
 
-      .services-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-card.featured { margin-top: 0; margin-bottom: 0; padding-top: 44px; padding-bottom: 36px; }
 
       .process-steps {
         grid-template-columns: 1fr;
@@ -1103,6 +1195,7 @@
     }
 
     @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
     }
 
@@ -1256,76 +1349,93 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES / PRICING -->
 <section id="services">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">Services</div>
+      <div class="section-label">Pricing</div>
       <h2>Four ways we help</h2>
       <p>Most clients start with an Audit, then move to Setup.</p>
     </div>
 
-    <div class="services-grid">
-      <!-- Card 1 -->
-      <div class="service-card fade-in">
-        <span class="service-tag tag-start">Start here</span>
-        <h3>AI Audit</h3>
-        <p class="service-price">From HK$3,800</p>
-        <p>We spend 4 hours learning how your team works — what takes the longest, what gets repeated, where things fall through the cracks. You get a written report naming your 3 biggest time drains and 3 quick fixes you can try this week.</p>
-        <ul class="service-features">
+    <div class="pricing-grid">
+
+      <!-- Card 1: AI Audit -->
+      <div class="pricing-card fade-in">
+        <div class="pricing-name">AI Audit</div>
+        <div class="pricing-desc">4 hours learning your team's workflow. A written report, not a pitch.</div>
+        <div class="pricing-price-block">
+          <div class="pricing-from">Starting from</div>
+          <div class="pricing-amount">HK$3,800</div>
+          <div class="pricing-period">One-time</div>
+        </div>
+        <ul class="pricing-features">
           <li>Workflow walkthrough with your team</li>
-          <li>Tool shortlist built for your workflows</li>
-          <li>Time-saving estimate in hours per week</li>
+          <li>Tool shortlist for your specific workflows</li>
+          <li>Time-saving estimate in hrs/week</li>
           <li>Priority action plan</li>
         </ul>
-        <a href="#contact" class="service-cta">Book an Audit →</a>
+        <a href="#contact" class="pricing-cta">Book an Audit</a>
       </div>
 
-      <!-- Card 2 — Featured -->
-      <div class="service-card featured fade-in">
-        <span class="service-tag tag-popular">Most popular</span>
-        <h3>AI Setup</h3>
-        <p class="service-price">From HK$8,500</p>
-        <p>We build the automations, write the prompts for your specific workflows, connect everything to your existing tools, and hand it over in a working session. You get a working setup — not a proof of concept.</p>
-        <ul class="service-features">
+      <!-- Card 2: AI Setup — Featured -->
+      <div class="pricing-card featured fade-in">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-name">AI Setup</div>
+        <div class="pricing-desc">We build it, connect it, train your team. You get a working setup.</div>
+        <div class="pricing-price-block">
+          <div class="pricing-from">Starting from</div>
+          <div class="pricing-amount">HK$8,500</div>
+          <div class="pricing-period">One-time</div>
+        </div>
+        <ul class="pricing-features">
           <li>Tool install and configuration</li>
-          <li>Prompts written for your actual use cases</li>
-          <li>System integrations (Xero, Shopify, Google Workspace, HubSpot)</li>
+          <li>Prompts written for your use cases</li>
+          <li>Integrations: Xero, Shopify, HubSpot, Google Workspace</li>
           <li>Full team handover session</li>
         </ul>
-        <a href="#contact" class="service-cta">Get Set Up →</a>
+        <a href="#contact" class="pricing-cta">Get Set Up</a>
       </div>
 
-      <!-- Card 3 -->
-      <div class="service-card fade-in">
-        <span class="service-tag tag-value">Best value</span>
-        <h3>Monthly Retainer</h3>
-        <p class="service-price">From HK$2,200/month</p>
-        <p>AI tools update constantly. We keep your setup current, help your team get more out of what's already there, and flag new tools worth switching to. One part-time AI department, without the full-time cost.</p>
-        <ul class="service-features">
+      <!-- Card 3: Monthly Retainer -->
+      <div class="pricing-card fade-in">
+        <div class="pricing-name">Monthly Retainer</div>
+        <div class="pricing-desc">One part-time AI department. Without the full-time cost.</div>
+        <div class="pricing-price-block">
+          <div class="pricing-from">Starting from</div>
+          <div class="pricing-amount">HK$2,200</div>
+          <div class="pricing-period">Per month</div>
+        </div>
+        <ul class="pricing-features">
           <li>Monthly strategy call</li>
           <li>Bug fixes within 24 hours</li>
           <li>1–2 new automations per month</li>
           <li>Unlimited support</li>
         </ul>
-        <a href="#contact" class="service-cta">Join the Retainer →</a>
+        <a href="#contact" class="pricing-cta">Join the Retainer</a>
       </div>
 
-      <!-- Card 4 -->
-      <div class="service-card fade-in">
-        <span class="service-tag tag-team">Team-wide</span>
-        <h3>AI Workshops</h3>
-        <p class="service-price">From HK$6,500</p>
-        <p>Half-day sessions where your team learns by doing, using examples from your industry — not generic demos. By the end, even the sceptics usually walk out with something they want to try on Monday.</p>
-        <ul class="service-features">
-          <li>Built around your industry, not a template</li>
-          <li>Hands-on with real tools on your machines</li>
-          <li>Live Q&amp;A</li>
+      <!-- Card 4: Workshops -->
+      <div class="pricing-card fade-in">
+        <div class="pricing-name">AI Workshops</div>
+        <div class="pricing-desc">Half-day sessions built around your industry. Not a generic demo.</div>
+        <div class="pricing-price-block">
+          <div class="pricing-from">Starting from</div>
+          <div class="pricing-amount">HK$6,500</div>
+          <div class="pricing-period">Per session</div>
+        </div>
+        <ul class="pricing-features">
+          <li>Built for your industry, not a template</li>
+          <li>Hands-on with real tools</li>
+          <li>Live Q&amp;A throughout</li>
           <li>Take-home reference kit</li>
         </ul>
-        <a href="#contact" class="service-cta">Book a Workshop →</a>
+        <a href="#contact" class="pricing-cta">Book a Workshop</a>
       </div>
+
     </div>
+
+    <p class="pricing-note">All prices in HKD. Custom scopes available — <a href="#contact">get in touch</a>.</p>
   </div>
 </section>
 
