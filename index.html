@@ -780,37 +780,167 @@
     /* ── PROCESS ── */
     #process {
       padding: 100px 0;
-      background: var(--cream);
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #process::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 50%, rgba(45,106,79,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 15% 80%, rgba(199,91,43,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    #process > .container { position: relative; }
+
+    #process .section-label { color: var(--terra-lt); }
+
+    .process-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+
+    .process-header-row h2 {
+      color: var(--white);
+      font-size: clamp(28px, 4vw, 44px);
+    }
+
+    /* Timeline widget */
+    .process-timeline-widget {
+      flex-shrink: 0;
+      width: 280px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(12px);
+      padding: 20px 22px;
+    }
+
+    .ptw-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .ptw-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .ptw-badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(45,106,79,0.25);
+      color: #6DBF91;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+
+    .ptw-weeks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ptw-week {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ptw-week-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      width: 22px;
+      flex-shrink: 0;
+    }
+
+    .ptw-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .ptw-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    .ptw-week:nth-child(1) .ptw-bar-fill { width: 100%; background: var(--terra); }
+    .ptw-week:nth-child(2) .ptw-bar-fill { width: 100%; background: rgba(255,255,255,0.25); animation: ptw-load 1.2s ease forwards 0.4s; }
+    .ptw-week:nth-child(3) .ptw-bar-fill { width: 0%; background: var(--sage-lt); animation: ptw-load 1.2s ease forwards 0.8s; }
+
+    @keyframes ptw-load { from { width: 0% } to { width: 100% } }
+
+    .ptw-week-name {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      width: 48px;
+      flex-shrink: 0;
+    }
+
+    .ptw-week:nth-child(1) .ptw-week-name { color: var(--terra-lt); }
+
+    .ptw-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ptw-footer-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6DBF91;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(109,191,145,0.6);
     }
 
     .process-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 56px;
+      gap: 20px;
       position: relative;
     }
 
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(16.67% + 28px);
-      right: calc(16.67% + 28px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--terra) 0%, var(--terra) 50%, var(--border) 100%);
-    }
-
     .process-step {
-      padding: 0 32px;
+      padding: 32px 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(8px);
+      transition: background 0.25s, border-color 0.25s;
     }
 
-    .process-step:first-child { padding-left: 0; }
-    .process-step:last-child { padding-right: 0; }
+    .process-step:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
 
     .step-num {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--ink);
       color: var(--white);
@@ -820,43 +950,53 @@
       font-family: 'Sora', sans-serif;
       font-weight: 800;
       font-size: 18px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       position: relative;
       z-index: 1;
     }
 
-    .process-step:nth-child(1) .step-num { background: var(--terra); }
-    .process-step:nth-child(2) .step-num { background: var(--ink-mid); }
-    .process-step:nth-child(3) .step-num { background: var(--sage); }
+    .process-step:nth-child(1) .step-num {
+      background: var(--terra);
+      box-shadow: 0 4px 16px rgba(199,91,43,0.35);
+    }
+    .process-step:nth-child(2) .step-num {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .process-step:nth-child(3) .step-num {
+      background: var(--sage);
+      box-shadow: 0 4px 16px rgba(45,106,79,0.35);
+    }
 
     .step-week {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--light);
-      margin-bottom: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
     }
 
     .process-step h3 {
-      font-size: 20px;
+      font-size: 19px;
       margin-bottom: 12px;
+      color: var(--white);
     }
 
     .process-step p {
       font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
     }
 
     .process-after {
-      margin-top: 56px;
-      padding: 28px 36px;
-      background: var(--sand);
-      border: 1px solid var(--border);
+      margin-top: 28px;
+      padding: 22px 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
-      font-size: 15px;
-      color: var(--muted);
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
       display: flex;
       align-items: center;
       gap: 12px;
@@ -864,10 +1004,10 @@
 
     .process-after::before {
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--terra);
+      background: var(--terra-lt);
       flex-shrink: 0;
     }
 
@@ -1323,12 +1463,17 @@
       .pricing-grid { grid-template-columns: repeat(2, 1fr); }
       .pricing-card.featured { margin-top: 0; margin-bottom: 0; padding-top: 44px; padding-bottom: 36px; }
 
-      .process-steps {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .process-header-row {
+        flex-direction: column;
+        gap: 32px;
       }
 
-      .process-steps::before { display: none; }
+      .process-timeline-widget { width: 100%; }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
 
       .cs-featured, .cs-featured.reversed { grid-template-columns: 1fr; }
       .cs-featured.reversed .cs-photo { order: 0; }
@@ -1350,6 +1495,262 @@
     @media (max-width: 600px) {
       .pricing-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ── GLASS SECTION WIDGETS ── */
+
+    /* Problem section: time audit widget */
+    .problem-widget-wrap {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .problem-widget-wrap > div:first-child { flex: 1; }
+
+    .glass-widget-sm {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      flex-shrink: 0;
+      width: 230px;
+    }
+
+    .gw-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+
+    .gw-stat-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .gw-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .gw-unit {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .gw-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .gw-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gw-bar-label {
+      font-size: 10px;
+      color: var(--light);
+      width: 42px;
+      flex-shrink: 0;
+    }
+
+    .gw-bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--sand);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .gw-bar-fill-before {
+      height: 100%;
+      width: 82%;
+      background: #E8A0A0;
+      border-radius: 3px;
+    }
+
+    .gw-bar-fill-after {
+      height: 100%;
+      width: 9%;
+      background: var(--sage-lt);
+      border-radius: 3px;
+    }
+
+    .gw-bar-value {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .gw-footer-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* Pricing section: ROI glass widget */
+    .pricing-widget {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      margin-top: 16px;
+    }
+
+    .pw-icon {
+      font-size: 18px;
+    }
+
+    .pw-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.4;
+    }
+
+    .pw-text strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Case studies: stats strip glass widget */
+    .cs-stats-strip {
+      display: flex;
+      gap: 0;
+      margin-bottom: 52px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .cs-stat-item {
+      flex: 1;
+      padding: 20px 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .cs-stat-item:last-child { border-right: none; }
+
+    .cs-stat-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .cs-stat-label {
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 4px;
+    }
+
+    /* Testimonials: rating glass widget */
+    .testimonials-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+
+    .testimonials-rating-widget {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+    }
+
+    .trw-score {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .trw-right {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .trw-stars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .trw-stars span { color: var(--gold); font-size: 13px; }
+
+    .trw-label {
+      font-size: 11px;
+      color: var(--light);
+    }
+
+    /* Contact: response badge */
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sand);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sage);
+      flex-shrink: 0;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(45,106,79,0.4); }
+      50% { box-shadow: 0 0 0 5px rgba(45,106,79,0); }
+    }
+
+    @media (max-width: 900px) {
+      .problem-widget-wrap { flex-direction: column; }
+      .glass-widget-sm { width: 100%; }
+      .testimonials-header-row { flex-direction: column; }
+      .cs-stats-strip { flex-wrap: wrap; }
+      .cs-stat-item { flex-basis: 50%; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .cs-stat-item:nth-child(even) { border-right: none; }
+      .cs-stat-item:nth-last-child(-n+2) { border-bottom: none; }
     }
 
     /* Animation */
@@ -1476,8 +1877,32 @@
 <!-- PROBLEM -->
 <section id="problem">
   <div class="container">
-    <div class="section-label">The problem</div>
-    <h2>What's eating your<br>team's time</h2>
+    <div class="problem-widget-wrap">
+      <div>
+        <div class="section-label">The problem</div>
+        <h2>What's eating your<br>team's time</h2>
+      </div>
+      <div class="glass-widget-sm">
+        <div class="gw-label">Weekly hours · manual work</div>
+        <div class="gw-stat-row">
+          <span class="gw-num">8.3</span>
+          <span class="gw-unit">hrs/week lost</span>
+        </div>
+        <div class="gw-bar-row">
+          <div class="gw-bar-item">
+            <span class="gw-bar-label">Before</span>
+            <div class="gw-bar-track"><div class="gw-bar-fill-before"></div></div>
+            <span class="gw-bar-value">8.3h</span>
+          </div>
+          <div class="gw-bar-item">
+            <span class="gw-bar-label">After</span>
+            <div class="gw-bar-track"><div class="gw-bar-fill-after"></div></div>
+            <span class="gw-bar-value">0.8h</span>
+          </div>
+        </div>
+        <div class="gw-footer-note">↓ 90% reduction on avg</div>
+      </div>
+    </div>
 
     <div class="problem-grid fade-in">
       <div class="problem-col before">
@@ -1551,6 +1976,10 @@
       <div class="section-label">Pricing</div>
       <h2>Four ways we help</h2>
       <p>Most clients start with an Audit, then move to Setup.</p>
+      <div class="pricing-widget">
+        <span class="pw-icon">💰</span>
+        <span class="pw-text">At HK$200/hr, saving 8 hrs/week = <strong>HK$6,400/month recovered</strong></span>
+      </div>
     </div>
 
     <div class="pricing-grid">
@@ -1637,8 +2066,39 @@
 <!-- HOW IT WORKS -->
 <section id="process">
   <div class="container">
-    <div class="section-label">How it works</div>
-    <h2>From first call to working<br>setup in 3 weeks</h2>
+    <div class="process-header-row">
+      <div>
+        <div class="section-label">How it works</div>
+        <h2>From first call to working<br>setup in 3 weeks</h2>
+      </div>
+      <div class="process-timeline-widget">
+        <div class="ptw-header">
+          <span class="ptw-title">Project timeline</span>
+          <span class="ptw-badge">3 weeks</span>
+        </div>
+        <div class="ptw-weeks">
+          <div class="ptw-week">
+            <span class="ptw-week-label">W1</span>
+            <div class="ptw-bar-track"><div class="ptw-bar-fill"></div></div>
+            <span class="ptw-week-name">Audit</span>
+          </div>
+          <div class="ptw-week">
+            <span class="ptw-week-label">W2</span>
+            <div class="ptw-bar-track"><div class="ptw-bar-fill"></div></div>
+            <span class="ptw-week-name">Build</span>
+          </div>
+          <div class="ptw-week">
+            <span class="ptw-week-label">W3</span>
+            <div class="ptw-bar-track"><div class="ptw-bar-fill"></div></div>
+            <span class="ptw-week-name">Train</span>
+          </div>
+        </div>
+        <div class="ptw-footer">
+          <div class="ptw-footer-dot"></div>
+          Live automations handed over
+        </div>
+      </div>
+    </div>
 
     <div class="process-steps">
       <div class="process-step fade-in">
@@ -1672,7 +2132,26 @@
   <div class="container">
     <div class="section-label">Results by industry</div>
     <h2>What we've built for<br>Hong Kong businesses</h2>
-    <p class="results-subhead" style="font-size:15px;margin-bottom:64px;">Six industries. Specific numbers. Real clients.</p>
+    <p class="results-subhead" style="font-size:15px;margin-bottom:36px;">Six industries. Specific numbers. Real clients.</p>
+
+    <div class="cs-stats-strip">
+      <div class="cs-stat-item">
+        <div class="cs-stat-num">120+</div>
+        <div class="cs-stat-label">HK businesses trained</div>
+      </div>
+      <div class="cs-stat-item">
+        <div class="cs-stat-num">6</div>
+        <div class="cs-stat-label">Industries covered</div>
+      </div>
+      <div class="cs-stat-item">
+        <div class="cs-stat-num">8.3h</div>
+        <div class="cs-stat-label">Avg hrs/week saved</div>
+      </div>
+      <div class="cs-stat-item">
+        <div class="cs-stat-num">4.9★</div>
+        <div class="cs-stat-label">Average rating</div>
+      </div>
+    </div>
 
     <!-- Featured 1: Accounting — photo left, content right -->
     <div class="cs-featured fade-in">
@@ -1782,9 +2261,22 @@
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="container">
-    <div class="section-label">Client results</div>
-    <h2>What clients say</h2>
-    <p style="color:var(--muted);margin-top:10px;">80+ Hong Kong businesses. These are their words.</p>
+    <div class="testimonials-header-row">
+      <div>
+        <div class="section-label">Client results</div>
+        <h2>What clients say</h2>
+        <p style="color:var(--muted);margin-top:10px;">80+ Hong Kong businesses. These are their words.</p>
+      </div>
+      <div class="testimonials-rating-widget">
+        <div class="trw-score">4.9</div>
+        <div class="trw-right">
+          <div class="trw-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="trw-label">from 80+ HK clients</div>
+        </div>
+      </div>
+    </div>
 
     <div class="testimonials-grid">
       <div class="testimonial-card fade-in">
@@ -1975,6 +2467,10 @@
   <div class="container">
     <div class="contact-grid">
       <div class="contact-left">
+        <div class="contact-badge">
+          <div class="contact-badge-dot"></div>
+          Typical reply within 4 business hours
+        </div>
         <div class="section-label">Free audit</div>
         <h2>Book your free<br>30-minute audit</h2>
         <p>Tell us what your team does and what takes up more time than it should. We'll show you the 3 places AI saves the most time. No commitment.</p>
